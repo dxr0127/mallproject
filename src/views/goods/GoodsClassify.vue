@@ -23,12 +23,12 @@
       </Table>
     </div>
     <Modal
-      v-model="addvisible"
+      v-model="visible"
       title="新增分类"
       :loading="loading"
       @on-ok="ok"
       @on-cancel="cancel">
-      <add-classify v-if="addvisible" ref="addclassify" :leveltype="level" @onClose="onClose" @setLoad="setLoad"></add-classify>
+      <add-classify v-if="visible" ref="handlepage" :leveltype="level" @onClose="onClose" @setLoad="setLoad"></add-classify>
     </Modal>
   </div>
 </template>
@@ -56,14 +56,14 @@ export default {
               props: {
                 row: params.row
               },
-              on:{
-                openAdd: (level)=>{
+              on: {
+                openAdd: (level) => {
                   this.openAdd(level)
                 },
-                edit: (data)=>{
+                edit: (data) => {
                   this.edit()
                 },
-                remove: (data)=>{
+                remove: (data) => {
                   this.remove()
                 }
               }
@@ -88,7 +88,7 @@ export default {
         type: '2'
       }],
       loading: true,
-      addvisible: false,
+      visible: false,
       level: ''
     }
   },
@@ -102,7 +102,7 @@ export default {
   methods: {
     openAdd (level) {
       this.level = level
-      this.addvisible = true
+      this.visible = true
     },
     onClose (vname) {
       this[vname] = false
@@ -118,7 +118,7 @@ export default {
     },
     ok () {
       // this.$Message.info('Clicked ok')
-      this.$refs.addclassify.handleSubmit()
+      this.$refs.handlepage.handleSubmit()
     },
     cancel () {
       // this.$Message.info('Clicked cancel')
@@ -131,8 +131,8 @@ export default {
         content: '确定删除该分类吗？',
         loading: true,
         onOk: () => {
-          console.log('aa')
-          this.$Modal.remove();
+          // console.log('aa')
+          this.$Modal.remove()
         }
       })
     }

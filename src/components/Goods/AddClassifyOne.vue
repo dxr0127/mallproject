@@ -38,7 +38,7 @@ export default {
         level1img: '',
         status: ''
       },
-      ruleValidate: ruleValidate,
+      ruleValidate: ruleValidate
     }
   },
   created () {

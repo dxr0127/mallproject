@@ -115,7 +115,7 @@ img {
   color: #999!important;
 }
 .cm-color-lightgrey {
-  color: #CDCECF!important;
+  color: #C5C8CE!important;
 }
 .cm-bg-color {
   background-color: #f9f9fb!important;
@@ -365,4 +365,10 @@ input:-moz-placeholder {
 .ivu-table-expanded-cell {
   padding: 0 0 0 50px!important;
   background-color: #fff!important;
+}
+.ivu-table-wrapper, .ivu-table, .ivu-table-header, .ivu-table-header thead tr th {
+  overflow: visible!important;
+}
+.ivu-table table {
+  margin-bottom: -1px!important;
 }

@@ -46,8 +46,9 @@
           <i-switch size="small" v-model="row.status" @on-change="change(index)"></i-switch>
         </template>
         <template slot-scope="{ row, index }" slot="action">
-          <Button type="primary" size="small" style="margin-right: 5px" @click="edit(row, index)">编辑</Button>
-          <Button type="error" size="small" @click="remove(row, index)">删除</Button>
+          <a href="javascript:void(0)" @click="edit(row, index)">编辑</a>
+          <Divider type="vertical" />
+          <a href="javascript:void(0)" @click="remove(row, index)">删除</a>
         </template>
       </Table>
     </div>
@@ -55,6 +56,7 @@
 </template>
 <script>
 import img from '../../../static/images/image/1.png'
+import CommonTips from '../common/CommonTips'
 const columns = [{
   title: '商品名称',
   key: 'name',
@@ -78,8 +80,20 @@ const columns = [{
 }, {
   title: '排序',
   key: 'sort',
-  slot: 'sort',
-  sortable: true
+  renderHeader (h, { column, $index }, index) {
+    return h(
+      'div', // 标签的名称
+      {
+        style: 'display: inline;'
+      },
+      [
+        h('span', '排序'),
+        h(CommonTips)
+      ]
+    )
+  },
+  sortable: true,
+  slot: 'sort'
 }, {
   title: '销售状态',
   key: 'status',

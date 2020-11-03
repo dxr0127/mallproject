@@ -6,12 +6,16 @@ const Home = () => import('@/views/home/Home')
 const Goods = () => import('@/views/goods/Goods')
 const GoodsList = () => import('@/views/goods/GoodsList')
 const GoodsClassify = () => import('@/views/goods/GoodsClassify')
+const GoodsParam = () => import('@/views/goods/GoodsParam')
+const GoodsUnit = () => import('@/views/goods/GoodsUnit')
+const GoodsBrand = () => import('@/views/goods/GoodsBrand')
 // 订单
 const Order = () => import('@/views/order/Order')
 const OrderList = () => import('@/views/order/OrderList')
 const OrderDeliver = () => import('@/views/order/OrderDeliver')
 const OrderServe = () => import('@/views/order/OrderServe')
 const OrderRights = () => import('@/views/order/OrderRights')
+const OrderTable = () => import('@/views/order/OrderTable')
 Vue.use(Router)
 
 export default new Router({
@@ -48,6 +52,33 @@ export default new Router({
           urlkey: '1-1-2',
           bread: ['商品管理', '商品分类']
         }
+      }, {
+        path: 'param',
+        name: 'param',
+        component: GoodsParam,
+        meta: {
+          ind: '1',
+          urlkey: '1-1-3',
+          bread: ['商品管理', '商品参数']
+        }
+      }, {
+        path: 'unit',
+        name: 'unit',
+        component: GoodsUnit,
+        meta: {
+          ind: '1',
+          urlkey: '1-1-4',
+          bread: ['商品管理', '商品属性']
+        }
+      }, {
+        path: 'brand',
+        name: 'brand',
+        component: GoodsBrand,
+        meta: {
+          ind: '1',
+          urlkey: '1-1-5',
+          bread: ['商品管理', '品牌管理']
+        }
       }]
     },
     {
@@ -60,7 +91,8 @@ export default new Router({
         component: OrderList,
         meta: {
           ind: '2',
-          urlkey: '2-1-1'
+          urlkey: '2-1-1',
+          bread: ['订单管理', '商品订单']
         }
       }, {
         path: 'deliver',
@@ -82,6 +114,14 @@ export default new Router({
         path: 'rights',
         name: 'rights',
         component: OrderRights,
+        meta: {
+          ind: '2',
+          urlkey: '2-3-1'
+        }
+      }, {
+        path: 'table',
+        name: 'table',
+        component: OrderTable,
         meta: {
           ind: '2',
           urlkey: '2-3-1'

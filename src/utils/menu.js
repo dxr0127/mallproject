@@ -26,7 +26,7 @@ const menuList = [{
       url: '/goods/param'
     }, {
       name: '1-1-4',
-      title: '商品单位',
+      title: '商品属性',
       url: '/goods/unit'
     }, {
       name: '1-1-5',

@@ -49,7 +49,7 @@ export default {
         level2img: '',
         status: ''
       },
-      ruleValidate: ruleValidate,
+      ruleValidate: ruleValidate
     }
   },
   created () {
