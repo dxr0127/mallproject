@@ -1,9 +1,9 @@
 <template>
-  <div class="ivu-table-cell ivu-table-cell-with-selection" @click="changeSelect">
-    <label class="ivu-checkbox-wrapper ivu-checkbox-default">
-      <span class="ivu-checkbox" :class="checkflag ? 'ivu-checkbox-checked' : ''">
-        <span class="ivu-checkbox-inner"></span>
-        <input type="checkbox" class="ivu-checkbox-input">
+  <div class="table-cell table-cell-with-selection" @click="changeSelect">
+    <label class="checkbox-wrapper checkbox-default">
+      <span class="checkbox" :class="checkflag ? 'checkbox-checked' : ''">
+        <span class="checkbox-inner"></span>
+        <!-- <input type="checkbox" class="ivu-checkbox-input"> -->
       </span>
     </label>
   </div>
@@ -23,13 +23,13 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.ivu-checkbox-wrapper {
+.checkbox-wrapper {
   cursor: pointer;
   font-size: 14px;
   display: inline-block;
-  margin-right: 8px;
+  /* margin-right: 8px; */
 }
-.ivu-checkbox {
+.checkbox {
   display: inline-block;
   vertical-align: middle;
   white-space: nowrap;
@@ -37,7 +37,7 @@ export default {
   line-height: 1;
   position: relative;
 }
-.ivu-checkbox-inner {
+.checkbox-inner {
   display: inline-block;
   width: 16px;
   height: 16px;
@@ -49,9 +49,8 @@ export default {
   background-color: #fff;
   transition: border-color .2s ease-in-out,background-color .2s ease-in-out,box-shadow .2s ease-in-out;
 }
-.ivu-checkbox-inner:after {
+.checkbox-inner:after {
   content: '';
-  display: table;
   width: 4px;
   height: 8px;
   position: absolute;
@@ -63,7 +62,7 @@ export default {
   transform: rotate(45deg) scale(0);
   transition: all .2s ease-in-out;
 }
-.ivu-checkbox-input {
+.checkbox-input {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -75,13 +74,12 @@ export default {
   cursor: pointer;
   opacity: 0;
 }
-.ivu-checkbox-checked .ivu-checkbox-inner {
+.checkbox-checked .checkbox-inner {
   border-color: #2d8cf0;
   background-color: #2d8cf0;
 }
-.ivu-checkbox-checked .ivu-checkbox-inner:after {
+.checkbox-checked .checkbox-inner:after {
   content: '';
-  display: table;
   width: 4px;
   height: 8px;
   position: absolute;
