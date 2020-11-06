@@ -28,12 +28,12 @@
             <template slot="title">
               {{item.info}}
             </template>
-            <MenuItem
+            <menu-item
               v-for="(v, k) in item.children"
               :key="k"
               :name="v.name"
               v-text="v.title">
-            </MenuItem>
+            </menu-item>
           </Submenu>
         </div>
       </Menu>
