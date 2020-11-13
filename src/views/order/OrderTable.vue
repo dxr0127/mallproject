@@ -26,7 +26,8 @@
             <span class="cm-margin-r-20">订单号：P190502705813816</span>
             <span class="cm-margin-r-20">下单时间：2020-15-25 16:39:57</span>
             <span class="cm-margin-r-20">订单来源：微信小程序</span><span>订单来源：微信小程序</span>
-            <span class="cm-margin-r-20">收货地址：山东省济南市天桥区明湖西路208号巴黎花园</span></div>
+            <span class="cm-margin-r-20">收货地址：山东省济南市天桥区明湖西路208号巴黎花园</span>
+          </div>
         </div>
         <section v-for="(v, k) in item.children" :key="k">
           <div class="listinner cm-f-b" v-if="k === 0">
@@ -72,7 +73,7 @@
               </div>
               <div class="list-header-cell width15 cm-f">
                 <Button type="primary" ghost size="small" class="cm-margin-r-10 cm-font-size-12">发货</Button>
-                <Button size="small" class="cm-font-size-12">查看详情</Button>
+                <Button size="small" class="cm-font-size-12" @click="openWin('/order/detail')">查看详情</Button>
               </div>
             </div>
           </div>
@@ -129,6 +130,11 @@ export default {
     CheckBox
   },
   methods: {
+    openWin (url) {
+      this.$router.push({
+        path: url
+      })
+    },
     changeAllSelect () {
       if (this.checkflag) {
         this.datalist = this.datalist.map(data => {

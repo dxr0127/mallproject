@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="cm-cont-inner">
     <div class="cm-top">
       <div class="cm-f-b-c">
         <div>

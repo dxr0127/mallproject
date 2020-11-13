@@ -4,6 +4,7 @@ import Router from 'vue-router'
 const Home = () => import('@/views/home/Home')
 // 商品
 const Goods = () => import('@/views/goods/Goods')
+const AddGoods = () => import('@/views/goods/AddGoods')
 const GoodsList = () => import('@/views/goods/GoodsList')
 const GoodsClassify = () => import('@/views/goods/GoodsClassify')
 const GoodsParam = () => import('@/views/goods/GoodsParam')
@@ -12,6 +13,7 @@ const GoodsBrand = () => import('@/views/goods/GoodsBrand')
 // 订单
 const Order = () => import('@/views/order/Order')
 const OrderList = () => import('@/views/order/OrderList')
+const OrderDetail = () => import('@/views/order/OrderDetail')
 const OrderDeliver = () => import('@/views/order/OrderDeliver')
 const OrderServe = () => import('@/views/order/OrderServe')
 const OrderRights = () => import('@/views/order/OrderRights')
@@ -42,6 +44,15 @@ export default new Router({
           ind: '1',
           urlkey: '1-1-1',
           bread: ['商品管理', '全部商品']
+        }
+      }, {
+        path: 'addgoods',
+        name: 'addgoods',
+        component: AddGoods,
+        meta: {
+          ind: '1',
+          urlkey: '1-1-1',
+          bread: ['商品管理', '全部商品', '新增商品']
         }
       }, {
         path: 'classify',
@@ -93,6 +104,15 @@ export default new Router({
           ind: '2',
           urlkey: '2-1-1',
           bread: ['订单管理', '商品订单']
+        }
+      }, {
+        path: 'detail',
+        name: 'detail',
+        component: OrderDetail,
+        meta: {
+          ind: '2',
+          urlkey: '2-1-1',
+          bread: ['订单管理', '商品订单', '订单详情']
         }
       }, {
         path: 'deliver',

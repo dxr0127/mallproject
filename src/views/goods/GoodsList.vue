@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="cm-cont-inner">
     <div class="cm-top">
       <div class="cm-f-b-c">
         <div>
-          <Button type="primary" ghost>新增商品</Button>
+          <Button type="primary" ghost @click="openWin('/goods/addgoods')">新增商品</Button>
           <Select v-model="sale" style="width:160px" class="cm-margin-l-10">
             <Option v-for="item in saleStatus" :value="item.value" :key="item.value">{{ item.label }}</Option>
           </Select>
@@ -173,6 +173,11 @@ export default {
     },
     change (key) {
       this.datalist[key].status = !this.datalist[key].status
+    },
+    openWin (url) {
+      this.$router.push({
+        path: url
+      })
     }
   }
 }

@@ -17,7 +17,7 @@
       :show-upload-list="false"
       :default-file-list="defaultList"
       :on-success="handleSuccess"
-      :format="['jpg','jpeg','png']"
+      :format="['mp4','wmv','mov']"
       :max-size="size*1024"
       :on-format-error="handleFormatError"
       :on-exceeded-size="handleMaxSize"
@@ -70,20 +70,20 @@ export default {
     handleFormatError (file) {
       this.$Notice.warning({
         title: '文件格式不正确',
-        desc: '请上传jpg或png格式的图片'
+        desc: '请上传mp4、wmv、或mov格式的视频'
       })
     },
     handleMaxSize (file) {
       this.$Notice.warning({
         title: '超出文件大小限制',
-        desc: '请上传' + this.size + 'M以内的图片'
+        desc: '请上传10M以内的视频'
       })
     },
     handleBeforeUpload () {
       const check = this.uploadList.length < 1
       if (!check) {
         this.$Notice.warning({
-          title: '最多可上传一张图片.'
+          title: '最多可上传一个视频.'
         })
       }
       return check

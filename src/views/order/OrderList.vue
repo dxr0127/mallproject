@@ -1,23 +1,63 @@
 <template>
-  <div>
+  <div class="cm-cont-inner">
     <div class="cm-top">
       <div>
-        <i-input v-model="searchData.keywords" style="max-width: 450px;">
-          <Select v-model="searchData.searchType" slot="prepend" style="width: 80px">
-            <Option value="day">Day</Option>
-            <Option value="month">Month</Option>
+        <i-input v-model="searchData.keywords" style="max-width: 470px;" placeholder="请输入关键字">
+          <Select v-model="searchData.searchType" slot="prepend" style="width: 100px">
+            <Option value="1">订单编号</Option>
+            <Option value="2">商品信息</Option>
           </Select>
           <Button slot="append" icon="ios-search"></Button>
         </i-input>
         <div class="cm-f-s-c cm-margin-t-10">
-          <span class="cm-margin-r-10">下单时间</span>
-          <DatePicker type="daterange" :options="options1" placement="bottom-end" placeholder="Select date" style="width: 200px"></DatePicker>
+          <div class="cm-margin-r-15 cm-margin-b-10">
+            <span class="cm-margin-r-10">下单时间</span>
+            <DatePicker type="daterange" :options="options1" placement="bottom-end" placeholder="Select date" style="width: 400px"></DatePicker>
+          </div>
         </div>
-        <div class="cm-f-s-c cm-margin-t-10">
-          <span class="cm-margin-r-10">订单类型</span>
-          <Select v-model="model1" style="width:200px">
-            <Option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</Option>
-          </Select>
+        <div class="cm-f-s-c cm-f-w cm-margin-t-10">
+          <div class="cm-margin-r-15 cm-margin-b-10">
+            <span class="cm-margin-r-10">订单类型</span>
+            <Select v-model="searchData.ordertype" style="width:200px">
+              <Option v-for="item in options2" :value="item.value" :key="item.value">{{ item.label }}</Option>
+            </Select>
+          </div>
+          <div class="cm-margin-r-15 cm-margin-b-10">
+            <span class="cm-margin-r-10">订单来源</span>
+            <Select v-model="searchData.ordertype" style="width:200px">
+              <Option v-for="item in options2" :value="item.value" :key="item.value">{{ item.label }}</Option>
+            </Select>
+          </div>
+          <div class="cm-margin-r-15 cm-margin-b-10">
+            <span class="cm-margin-r-10">订单状态</span>
+            <Select v-model="searchData.ordertype" style="width:200px">
+              <Option v-for="item in options2" :value="item.value" :key="item.value">{{ item.label }}</Option>
+            </Select>
+          </div>
+        </div>
+        <div class="cm-f-s-c cm-f-w cm-margin-t-10">
+          <div class="cm-margin-r-15 cm-margin-b-10">
+            <span class="cm-margin-r-10">配送方式</span>
+            <Select v-model="searchData.ordertype" style="width:200px">
+              <Option v-for="item in options2" :value="item.value" :key="item.value">{{ item.label }}</Option>
+            </Select>
+          </div>
+          <div class="cm-margin-r-15 cm-margin-b-10">
+            <span class="cm-margin-r-10">付款方式</span>
+            <Select v-model="searchData.ordertype" style="width:200px">
+              <Option v-for="item in options2" :value="item.value" :key="item.value">{{ item.label }}</Option>
+            </Select>
+          </div>
+          <div class="cm-margin-r-15 cm-margin-b-10">
+            <span class="cm-margin-r-10">维权状态</span>
+            <Select v-model="searchData.ordertype" style="width:200px">
+              <Option v-for="item in options2" :value="item.value" :key="item.value">{{ item.label }}</Option>
+            </Select>
+          </div>
+        </div>
+        <div class="cm-f-s-c cm-f-w cm-margin-t-10 margin-l">
+          <Button type="primary" size="small" class="cm-margin-r-15">筛选</Button>
+          <Button type="text" size="small" class="cm-color-blue">清空筛选条件</Button>
         </div>
       </div>
     </div>
@@ -82,8 +122,8 @@ export default {
       }],
       searchData: {
         keywords: '',
-        searchType: '',
-        o
+        searchType: '1',
+        ordertype: ''
       },
       options1: {
         shortcuts: [
@@ -124,7 +164,11 @@ export default {
             }
           }
         ]
-      }
+      },
+      options2: [{
+        value: '1',
+        label: '类型1'
+      }]
     }
   },
   created () {
@@ -135,4 +179,7 @@ export default {
 }
 </script>
 <style scoped>
+.margin-l {
+  margin-left: 70px;
+}
 </style>
