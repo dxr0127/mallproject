@@ -31,27 +31,19 @@ export default {
     return {
       itemnum: [],
       columns: [],
-      newcolumns: [{
-        title: '型号',
-        key: 'model'
-      }, {
-        title: '颜色',
-        key: 'color'
-      }, {
-        title: '版本',
-        key: 'version'
-      }, {
-        title: '规格图片',
-        key: 'img',
-        render: (h, params) => {
-          return h(AddFiles, {
-            style: {
-              padding: '5px 0'
-            }
-          })
-        }
-      }],
+      newcolumns: [],
       defaultColumns: [
+        {
+          title: '规格图片',
+          key: 'img',
+          render: (h, params) => {
+            return h(AddFiles, {
+              style: {
+                padding: '5px 0'
+              }
+            })
+          }
+        },
         {
           title: '库存',
           key: 'stock',

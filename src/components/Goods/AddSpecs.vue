@@ -10,8 +10,8 @@
       <div class="listbox">
         <div class="list cm-margin-b-10" v-for="(item, key) in specs" :key="key">
           <div class="cm-f-b-c bg-grey cm-padded-10">
-            <Select v-model="item.value" style="width:200px">
-              <Option v-for="item in specs1" :value="item.value" :key="item.value">{{ item.name }}</Option>
+            <Select style="width:200px" @on-change="handleChange" @on-open-change="onOpenChange(key)" :label-in-value="true">
+              <Option v-for="item in specsData[key]" :value="item.value" :key="item.value">{{ item.name }}</Option>
             </Select>
             <div class="cm-color-blue cm-pointer" @click="delSpecs(key)">删除规格</div>
           </div>
@@ -51,12 +51,21 @@ export default {
       frmname: 'specs-list',
       specs: [],
       dataList: [],
-      specs1: [{
-        name: '型号',
-        value: 1
-      }],
-      specs2: [],
-      specs3: [],
+      specsKey: '',
+      specsData: [
+        [{
+          name: '型号',
+          value: 1
+        }],
+        [{
+          name: '颜色',
+          value: 1
+        }],
+        [{
+          name: '版本',
+          value: 1
+        }]
+      ],
       specsValue: ''
     }
   },
@@ -75,22 +84,34 @@ export default {
       this.specs[key].visible = false
     },
     addSpecsValue (key) {
+      this.dataList = []
       let obj = {}
       obj.value = this.specsValue
       this.specs[key].children.push(obj)
       this.specs[key].visible = false
       this.specsValue = ''
-      console.log(JSON.stringify(this.specs))
+      // console.log(JSON.stringify(this.specs))
       // let len = this.specs.length
-      console.log(this.specs.length)
-      let num = 0
-      for (let s in this.specs.length) {
-        // num += this.specs[s].children.length
-        // for (let j )
+      // console.log(this.specs.length)
+      var num = 1
+      // let numarr = []
+      for (let s in this.specs) {
+        num *= this.specs[s].children.length
       }
-      // for (let j = 0; j < num; j++) {
-      //   this.dataList.push()
-      // }
+      // console.log(num)
+      for (let j = 0; j < num; j++) {
+        this.dataList.push({})
+      }
+    },
+    onOpenChange (key) {
+      // console.log(key)
+      this.specsKey = key
+    },
+    handleChange (data) {
+      // console.log(data)
+      this.specs[this.specsKey].name = data.label
+      this.specs[this.specsKey].value = data.value
+      console.log(this.specs)
     },
     addSpecs () {
       let obj = {
