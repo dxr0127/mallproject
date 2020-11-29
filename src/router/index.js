@@ -2,6 +2,10 @@ import Vue from 'vue'
 import Router from 'vue-router'
 // 概况
 const Home = () => import('@/views/home/Home')
+// 店铺
+const Shops = () => import('@/views/shop/Shops')
+const ShopsList = () => import('@/views/shop/ShopsList')
+const AddShop = () => import('@/views/shop/AddShop')
 // 商品
 const Goods = () => import('@/views/goods/Goods')
 const AddGoods = () => import('@/views/goods/AddGoods')
@@ -31,6 +35,30 @@ export default new Router({
         urlkey: '0-1',
         bread: ['概况']
       }
+    },
+    {
+      path: '/shops',
+      name: 'shops',
+      component: Shops,
+      children: [{
+        path: 'list',
+        name: 'shopslist',
+        component: ShopsList,
+        meta: {
+          ind: '3',
+          urlkey: '3-1-1',
+          bread: ['店铺管理', '商城店铺']
+        }
+      }, {
+        path: 'addshop',
+        name: 'addshop',
+        component: AddShop,
+        meta: {
+          ind: '3',
+          urlkey: '3-1-1',
+          bread: ['店铺管理', '店铺列表', '新建店铺']
+        }
+      }]
     },
     {
       path: '/goods',

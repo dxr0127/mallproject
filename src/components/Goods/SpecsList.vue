@@ -7,7 +7,6 @@
         <a href="javascript:void(0)" @click="forbidden(row, index)">禁用</a>
       </template>
     </Table>
-    <Button @click="getData">打印</Button>
   </div>
 </template>
 <script>

@@ -5,6 +5,28 @@ const menuList = [{
   icon: 'icon-gaikuang',
   children: []
 }, {
+  key: '3',
+  title: '店铺',
+  url: '/shops/list',
+  icon: 'icon-gaikuang',
+  children: [{
+    name: '3-1',
+    info: '店铺管理',
+    children: [{
+      name: '3-1-1',
+      title: '商城店铺',
+      url: '/shops/list'
+    }, {
+      name: '3-1-2',
+      title: '业绩设置',
+      url: '/shops/classify'
+    }, {
+      name: '3-1-3',
+      title: '业绩明细',
+      url: '/goods/param'
+    }]
+  }]
+}, {
   key: '1',
   title: '商品',
   url: '/goods/list',
@@ -72,7 +94,8 @@ const menuList = [{
 const menuinfo = {
   '0': '概况',
   '1': '商品管理',
-  '2': '订单管理'
+  '2': '订单管理',
+  '3': '店铺管理'
 }
 const menuurl = {
   '1-1-1': '/goods/list',
@@ -83,6 +106,7 @@ const menuurl = {
   '2-1-1': '/order/list',
   '2-2-1': '/order/deliver',
   '2-2-2': '/order/serve',
-  '2-3-1': '/order/rights'
+  '2-3-1': '/order/rights',
+  '3-1-1': '/shops/list'
 }
 export {menuList, menuinfo, menuurl}

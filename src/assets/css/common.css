@@ -362,6 +362,12 @@ input:-moz-placeholder {
 .bg-white {
   background-color: #fff;
 }
+.bg-grey {
+  background-color: #EFEFEF;
+}
+.bg-light-grey {
+  background-color: #F7F7F7;
+}
 .cm-pointer {
   cursor: pointer;
 }

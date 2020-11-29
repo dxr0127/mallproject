@@ -7,7 +7,7 @@
 </template>
 <script>
 export default {
-  name: 'Goods',
+  name: 'Shops',
   data () {
     return {
     }

@@ -33,14 +33,14 @@ let formValidate2 = {
   specs: '1'
 }
 let formValidate3 = {
-  name: '',
-  code: '',
-  desc: '',
-  classify: '',
-  brand: '',
-  unit: '',
-  img: '',
-  video: ''
+  ensure: '',
+  types: '',
+  pnum: '',
+  delivery: [],
+  fare: '',
+  weight: '',
+  volume: '',
+  salenum: ''
 }
 let formValidate4 = {
   name: '',
@@ -124,6 +124,10 @@ export default {
 }
 </script>
 <style scoped>
+  .cont {
+    height: calc(100% - 62px);
+    overflow: auto;
+  }
   .tab {
     width: 25%;
     text-align: center;

@@ -1,0 +1,16 @@
+.continfo {
+  position: relative;
+}
+.continfo::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 10px;
+  width: 3px;
+  height: 15px;
+  background-color: rgba(64, 158, 255, 1);
+}
+.formbox {
+  padding: 30px 40px;
+}
